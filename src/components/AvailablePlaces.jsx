@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Places from './Places.jsx';
 import Error from './Error.jsx'
-import { useEffect } from 'react';
 import { sortPlacesByDistance } from '../loc.js';
 import { fetchAvailablePlaces } from '../http.js';
 
@@ -31,8 +30,9 @@ export default function AvailablePlaces({ onSelectPlace }) {
         });
       } catch (error){
         setError({message: error.message || "Couldn't fetch places..."});
+        setIsFetching(false);
+
       }
-      setIsFetching(false);
 
     }
 

@@ -30,7 +30,7 @@ function App() {
     }
 
     fetchPlaces();
-  });
+  }, []);
 
   function handleStartRemovePlace(place) {
     setModalIsOpen(true);
